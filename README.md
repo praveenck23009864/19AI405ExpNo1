@@ -39,4 +39,56 @@
 <h3>STEP 4:Implementing the AI agent:</h3>
 <p>Treat unhealthy patients in each room. And check for the unhealthy patients in random room</p>
 <h3>STEP 5:</h3>
+```
+```
+##code
+import random
+
+class VacuumAgent:
+    def _init_(self):
+        self.location = random.choice(['A', 'B'])
+        self.performance = 0
+
+    def perceive(self, environment):
+        return environment.get_status(self.location)
+
+    def act(self, status, environment):
+        if status == 'dirty':
+            self.clean(environment)
+        else:
+            self.move(environment)
+
+    def clean(self, environment):
+        environment.clean(self.location)
+        self.performance += 10
+
+    def move(self, environment):
+        self.location = 'B' if self.location == 'A' else 'A'
+        self.performance -= 1
+
+class VacuumEnvironment:
+    def _init_(self):
+        self.status = {'A': 'dirty', 'B': 'dirty'}
+
+    def get_status(self, location):
+        return self.status[location]
+
+    def clean(self, location):
+        self.status[location] = 'clean'
+
+if _name_ == "_main_":
+    agent = VacuumAgent()
+    environment = VacuumEnvironment()
+
+    for _ in range(10):
+        print("Agent Location:", agent.location)
+        print("Agent Performance:", agent.performance)
+        status = agent.perceive(environment)
+        print("Perceived status at location", agent.location, ":", status)
+        agent.act(status, environment)
+        print("Environment Status after Action:", environment.status)
+        print("----")
+````
+```
+```
 <p>Measure the performance parameters: For each treatment performance incremented, for each movement performance decremented</p>
