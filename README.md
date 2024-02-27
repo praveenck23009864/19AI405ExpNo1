@@ -39,12 +39,10 @@
 <h3>STEP 4:Implementing the AI agent:</h3>
 <p>Treat unhealthy patients in each room. And check for the unhealthy patients in random room</p>
 <h3>STEP 5:</h3>
-```
-```
-praveen ck
-212222243003
-```
-```
+
+<h3>Name: praveen . c k </h3>
+<h3>Register Number: 212222243003</h3> 
+
 <code>
 import random
 import time
